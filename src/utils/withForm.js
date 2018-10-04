@@ -154,8 +154,8 @@ const withForm = function withForm(Component, hrinfoType, label) {
           this.isValid(doc.organizations) &&
           this.isValid(doc.locations) &&
           this.isValid(doc.population_types) &&
-          this.isValid(doc.report.accessibility) &&
-          this.isValid(doc.data.accessibility) &&
+          this.isValid(doc.report) &&
+          this.isValid(doc.data) &&
           this.isValid(doc.language)) {
           isValid = true;
         }
@@ -318,8 +318,8 @@ const withForm = function withForm(Component, hrinfoType, label) {
             else {
               delete body.report.url;
             }
-            if (body.report.files.length === 0) {
-              delete body.report.files;
+            if (body.report.file.length === 0) {
+              delete body.report.file;
             }
           }
           if (body.data && body.data.accessibility[0]) {
@@ -336,8 +336,8 @@ const withForm = function withForm(Component, hrinfoType, label) {
             else {
               delete body.data.url;
             }
-            if (body.data.files.length === 0) {
-              delete body.data.files;
+            if (body.data.file.length === 0) {
+              delete body.data.file;
             }
           }
           if (body.questionnaire && body.questionnaire.accessibility[0]) {
@@ -354,8 +354,8 @@ const withForm = function withForm(Component, hrinfoType, label) {
             else {
               delete body.questionnaire.url;
             }
-            if (body.questionnaire.files.length === 0) {
-              delete body.questionnaire.files;
+            if (body.questionnaire.file.length === 0) {
+              delete body.questionnaire.file;
             }
           }
         }
