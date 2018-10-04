@@ -47,8 +47,8 @@ export default ({ childProps }) =>
 
 {/* Documents */}
     <AuthenticatedRoute path="/documents/new"      exact component={withForm(DocumentForm, 'documents', 'document')} props={childProps} />
-    <AuthenticatedRoute path="/documents/:id"      exact component={ItemPage}                                        props={childProps} />
     <AuthenticatedRoute path="/documents/:id/edit" exact component={withForm(DocumentForm, 'documents', 'document')} props={childProps} />
+    <AuthenticatedRoute path="/documents/:id"      exact component={ItemPage}                                        props={childProps} />
 
 {/* Infographics */}
     <AuthenticatedRoute path="/infographics/new"      exact component={withForm(DocumentForm, 'infographics', 'infographic')} props={childProps} />

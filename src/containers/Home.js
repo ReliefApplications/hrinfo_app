@@ -27,12 +27,12 @@ class Home extends React.Component {
             <ul>
               <li><Link to="/documents/170942">See a document</Link></li>
               <li><Link to="/infographics/170943">See a map/infographic</Link></li>
-              <li><Link to="/events/21873">See a new event</Link></li>
-              <li><Link to="/operations/109020">See a new operation</Link></li>
-              <li><Link to="/groups/145994">See a new cluster</Link></li>
-              <li><Link to="/organizations/63200">See a new organization</Link></li>
-              <li><Link to="/assessments/129257">See a new assessment</Link></li>
-              <li><Link to="/offices/22256">See a new office</Link></li>
+              <li><Link to="/events/169035">See an event</Link></li>
+              <li><Link to="/operations/109020">See an operation</Link></li>
+              <li><Link to="/groups/145994">See a cluster</Link></li>
+              <li><Link to="/organizations/63200">See an organization</Link></li>
+              <li><Link to="/assessments/129257">See an assessment</Link></li>
+              <li><Link to="/offices/22256">See an office</Link></li>
             </ul>
           </div>
         </div>

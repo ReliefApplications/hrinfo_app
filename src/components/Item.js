@@ -19,6 +19,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 
+import EventCategorySelect   from '../components/EventCategorySelect';
+
 import moment from 'moment';
 
 const styles = {
@@ -53,20 +55,38 @@ const styles = {
 };
 
 class Item extends React.Component {
+    t = this.props.t;
 
     constructor(props) {
       super(props);
 
       this.state = {
         anchorProject : null,
-        filesOpen     : false
+        filesOpen     : false,
+        options: [
+            { value: '82', label: this.t('events.category.meetings')},
+            { value: '83', label: this.t('events.category.trainings')},
+            { value: '84', label: this.t('events.category.workshops')},
+            { value: '85', label: this.t('events.category.conferences')}
+          ],
       };
 
       this.renderBadges = this.renderBadges.bind(this);
       this.openFiles = this.openFiles.bind(this);
       this.openFilesMenu              = this.openFilesMenu.bind(this);
       this.closeFilesMenu             = this.closeFilesMenu.bind(this);
+      this.getValue                   = this.getValue.bind(this);
     }
+
+    getValue = (val) => {
+      let out = {value: '', label: ''};
+      this.state.options.forEach(function (option) {
+        if (option.value === val) {
+          out = option;
+        }
+      });
+      return out;
+    };
 
     openFilesMenu = event => {
       this.setState({
@@ -91,17 +111,20 @@ class Item extends React.Component {
       const attributes = [
         'document_type',
         'infographic_type',
+        'category',
         'publication_date',
         'operation',
         'space',
         'organizations',
         'bundles',
+        'location',
         'locations',
         'themes',
         'offices',
         'disasters'
       ];
       let badges = [];
+      let that = this;
       attributes.forEach(function (a) {
         let values = [];
         if (item[a] && Array.isArray(item[a])) {
@@ -134,7 +157,17 @@ class Item extends React.Component {
           );
         }
         else if (item[a]) {
-          if ((new Date(item[a])).toDateString() !== 'Invalid Date') {
+          if (a === 'category') {
+            console.log(that.getValue(item[a]).label);
+            badges.push(
+              <ListItem key={a}>
+                <Typography variant="subheading" color="textSecondary">
+                  {t(a)}
+                  <Typography key={a}>{that.getValue(item[a]).label}</Typography>
+                </Typography>
+              </ListItem>);
+          }
+          else if ((new Date(item[a])).toDateString() !== 'Invalid Date') {
             let date = new Date(item[a]);
             badges.push(
               <ListItem key={a}>

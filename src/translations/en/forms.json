@@ -56,6 +56,7 @@
     "unit_measurement": "Unit of measurement",
     "collection_method": "Collection method",
     "contacts": "Contacts",
+    "category": "Event category",
     "helpers": {
         "files": "Upload the file to publish from your computer, and specify its language. It is best to publish one file per record, however you can add more if needed. To see Standards and Naming Conventions click <1>here</1>."
     },
