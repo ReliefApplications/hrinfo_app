@@ -255,7 +255,7 @@ class AssessmentForm extends React.Component {
                              name     = "subject"
                              multiline = {true}
                              rowsMax   = "4"
-                             value    = {this.props.doc.subject}
+                             value    = {this.props.doc.subject || ''}
                              onChange = {this.props.handleInputChange}/>
                   <FormHelperText id = "subject-text">
                     {t('assessment.helpers.subject')}
@@ -270,7 +270,7 @@ class AssessmentForm extends React.Component {
                              name     = "methodology"
                              multiline = {true}
                              rowsMax   = "4"
-                             value    = {this.props.doc.methodology}
+                             value    = {this.props.doc.methodology || ''}
                              onChange = {this.props.handleInputChange}/>
                   <FormHelperText id = "methodology-text">
                     {t('assessment.helpers.methodology')}
@@ -285,7 +285,7 @@ class AssessmentForm extends React.Component {
                              name     = "key_findings"
                              multiline = {true}
                              rowsMax   = "4"
-                             value    = {this.props.doc.key_findings}
+                             value    = {this.props.doc.key_findings || ''}
                              onChange = {this.props.handleInputChange}/>
                   <FormHelperText id = "key_findings-text">
                     {t('assessment.helpers.key_findings')}
@@ -362,7 +362,6 @@ class AssessmentForm extends React.Component {
               <FormControl required fullWidth margin = "normal">
                 <FormLabel focused error ={this.props.status === 'was-validated' && !this.props.isValid(this.props.doc.report)}>{t('files.assessment_report')}</FormLabel>
                 <HRInfoFilesAccessibility onChange={(s) => this.props.handleSelectChange('report', s)}
-                                          onInputChange={this.props.handleInputChange}
                                           value={this.props.doc.report} />
                 <FormHelperText id = "report-text">
                   <Trans i18nKey='assessment.helpers.assessment_report'>Upload the assessment report file, stored on your computer

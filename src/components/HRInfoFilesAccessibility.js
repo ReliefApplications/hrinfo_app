@@ -63,22 +63,19 @@ class HRInfoFilesAccessibility extends React.Component {
         });
     }
     else if (type === 'instructions') {
-      let instructions = this.state.instructions;
-      instructions = v.target.value;
+      let instructions = v.target.value;
       this.setState({
         instructions: instructions
       });
     }
     else if (type === 'url') {
-      let url = this.state.url;
-      url = v.target.value;
+      let url = v.target.value;
       this.setState({
         url: url
       });
     }
     else {
-      let accessibility = this.state.accessibility;
-      accessibility = v;
+      let accessibility = v;
       this.changeState({
         accessibility: accessibility
       });
@@ -160,7 +157,7 @@ class HRInfoFilesAccessibility extends React.Component {
                          multiline = {true}
                          rowsMax   = "4"
                          fullWidth = {true}
-                         value     = {this.state.instructions}
+                         value     = {this.state.instructions || ''}
                          onChange  = { (s) => this.handleChange('instructions', s)}/>
             </CardContent> : ''
           }
@@ -171,7 +168,7 @@ class HRInfoFilesAccessibility extends React.Component {
                            name      = "url"
                            id        = "url"
                            fullWidth = {true}
-                           value     = {this.state.url}
+                           value     = {this.state.url || ''}
                            onChange  = { (s) => this.handleChange('url', s)}/>
             </CardContent> : ''
           }
